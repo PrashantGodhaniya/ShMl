@@ -1,0 +1,6 @@
+artifact_location: file:///workspaces/ShMl/mlruns/205993247231200305
+creation_time: 1772361864495
+experiment_id: '205993247231200305'
+last_update_time: 1772361864495
+lifecycle_stage: active
+name: telecom_churn_prediction

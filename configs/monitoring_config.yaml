@@ -1,0 +1,10 @@
+drift_detection:
+  method: ks_test
+  threshold: 0.05
+
+monitoring:
+  log_path: logs/monitoring.log
+
+alerts:
+  drift_alert: true
+  retraining_alert: true

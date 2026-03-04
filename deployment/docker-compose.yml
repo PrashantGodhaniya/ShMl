@@ -1,0 +1,20 @@
+version: "3.8"
+
+services:
+
+  churn-api:
+
+    build:
+      context: ..
+      dockerfile: deployment/Dockerfile
+
+    container_name: churn_prediction_api
+
+    ports:
+      - "8000:8000"
+
+    volumes:
+      - ../models:/app/models
+      - ../logs:/app/logs
+
+    restart: always

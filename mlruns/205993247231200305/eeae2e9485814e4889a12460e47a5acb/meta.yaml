@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/ShMl/mlruns/205993247231200305/eeae2e9485814e4889a12460e47a5acb/artifacts
+end_time: 1772361868451
+entry_point_name: ''
+experiment_id: '205993247231200305'
+lifecycle_stage: active
+run_id: eeae2e9485814e4889a12460e47a5acb
+run_name: gregarious-steed-287
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772361868407
+status: 3
+tags: []
+user_id: codespace

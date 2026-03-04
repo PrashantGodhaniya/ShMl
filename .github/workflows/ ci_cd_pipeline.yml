@@ -1,0 +1,46 @@
+name: MLOps CI/CD Pipeline
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+
+  build-and-test:
+
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout Repository
+        uses: actions/checkout@v3
+
+      - name: Setup Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: "3.10"
+
+      - name: Install Dependencies
+        run: |
+          pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Run Data Pipeline
+        run: |
+          python -m src.data.ingest
+          python -m src.data.preprocess
+          python -m src.data.features.build_features
+
+      - name: Train Model
+        run: |
+          python -m src.data.models.train
+
+      - name: Run Tests
+        run: |
+          pytest
+
+      - name: Build Docker Image
+        run: |
+          docker build -f deployment/Dockerfile -t churn-mlops .

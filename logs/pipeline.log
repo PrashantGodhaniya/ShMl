@@ -1,0 +1,58 @@
+2026-03-03 06:19:14,395 - INFO - mlops_logger - Starting data ingestion...
+2026-03-03 06:19:14,514 - INFO - mlops_logger - Dataset loaded successfully with shape: (7043, 21)
+2026-03-03 06:19:14,514 - INFO - mlops_logger - Previewing dataset...
+2026-03-03 06:19:14,514 - INFO - mlops_logger - Columns: ['customerID', 'gender', 'SeniorCitizen', 'Partner', 'Dependents', 'tenure', 'PhoneService', 'MultipleLines', 'InternetService', 'OnlineSecurity', 'OnlineBackup', 'DeviceProtection', 'TechSupport', 'StreamingTV', 'StreamingMovies', 'Contract', 'PaperlessBilling', 'PaymentMethod', 'MonthlyCharges', 'TotalCharges', 'Churn']
+2026-03-03 06:19:14,514 - INFO - mlops_logger - Dataset shape: (7043, 21)
+2026-03-03 06:19:14,524 - INFO - mlops_logger - Missing values:
+customerID          0
+gender              0
+SeniorCitizen       0
+Partner             0
+Dependents          0
+tenure              0
+PhoneService        0
+MultipleLines       0
+InternetService     0
+OnlineSecurity      0
+OnlineBackup        0
+DeviceProtection    0
+TechSupport         0
+StreamingTV         0
+StreamingMovies     0
+Contract            0
+PaperlessBilling    0
+PaymentMethod       0
+MonthlyCharges      0
+TotalCharges        0
+Churn               0
+dtype: int64
+2026-03-03 06:21:03,863 - INFO - mlops_logger - Starting data validation...
+2026-03-03 06:21:03,886 - INFO - mlops_logger - Schema validation passed.
+2026-03-03 06:21:03,891 - INFO - mlops_logger - No missing values detected.
+2026-03-03 06:21:03,904 - INFO - mlops_logger - No duplicate rows found.
+2026-03-03 06:21:03,905 - INFO - mlops_logger - Target column values: ['No' 'Yes']
+2026-03-03 06:21:03,905 - INFO - mlops_logger - Data validation completed successfully.
+2026-03-03 06:32:39,146 - INFO - mlops_logger - Starting feature engineering...
+2026-03-03 06:32:39,442 - INFO - mlops_logger - Cleaning TotalCharges column...
+2026-03-03 06:32:39,444 - INFO - mlops_logger - Encoding binary categorical variables...
+2026-03-03 06:32:39,444 - INFO - mlops_logger - Applying one-hot encoding...
+2026-03-03 06:32:39,447 - INFO - mlops_logger - Feature engineering complete. Dataset shape: (7043, 20)
+2026-03-03 06:32:39,599 - INFO - mlops_logger - Processed dataset saved.
+2026-03-04 10:30:47,006 - INFO - mlops_logger - Loading processed dataset...
+2026-03-04 10:30:47,034 - INFO - mlops_logger - Splitting dataset...
+2026-03-04 10:30:47,038 - INFO - mlops_logger - Training RandomForest model...
+2026-03-04 10:30:47,993 - INFO - mlops_logger - Evaluating model...
+2026-03-04 10:30:48,050 - INFO - mlops_logger - 
+Accuracy: 0.8076650106458482
+2026-03-04 10:30:48,051 - INFO - mlops_logger - 
+Classification Report:
+              precision    recall  f1-score   support
+
+           0       0.84      0.91      0.87      1036
+           1       0.68      0.51      0.59       373
+
+    accuracy                           0.81      1409
+   macro avg       0.76      0.71      0.73      1409
+weighted avg       0.80      0.81      0.80      1409
+
+2026-03-04 10:30:48,188 - INFO - mlops_logger - Model saved at /workspaces/ShMl/models/churn_model.pkl

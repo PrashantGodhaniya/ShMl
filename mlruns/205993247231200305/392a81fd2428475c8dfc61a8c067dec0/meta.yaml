@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/ShMl/mlruns/205993247231200305/392a81fd2428475c8dfc61a8c067dec0/artifacts
+end_time: 1772620248607
+entry_point_name: ''
+experiment_id: '205993247231200305'
+lifecycle_stage: active
+run_id: 392a81fd2428475c8dfc61a8c067dec0
+run_name: righteous-perch-584
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772620248587
+status: 3
+tags: []
+user_id: codespace

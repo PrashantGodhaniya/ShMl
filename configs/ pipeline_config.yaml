@@ -1,0 +1,15 @@
+data:
+  raw_data_path: data/raw/teleco_churn.csv
+  processed_data_path: data/processed/processed_churn.csv
+  drift_data_path: data/drifted_data/churn_drifted.csv
+
+pipeline:
+  test_size: 0.2
+  random_state: 42
+
+features:
+  drop_columns:
+    - customerID
+
+target:
+  column: Churn

@@ -1,0 +1,14 @@
+artifact_uri: file:///workspaces/ShMl/mlruns/205993247231200305/f0cfcd4e8a7448aba7cded2dd6f70711/artifacts
+end_time: 1772618905316
+entry_point_name: ''
+experiment_id: '205993247231200305'
+lifecycle_stage: active
+run_id: f0cfcd4e8a7448aba7cded2dd6f70711
+run_name: capricious-jay-331
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1772618905287
+status: 3
+tags: []
+user_id: codespace
