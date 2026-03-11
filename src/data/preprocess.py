@@ -2,6 +2,8 @@ import pandas as pd
 import numpy as np
 from sklearn.preprocessing import LabelEncoder, StandardScaler
 import os
+import joblib
+from src.data.utils.encoder import encode_input
 
 
 # -------------------------
@@ -33,6 +35,7 @@ def clean_data(df):
 
     # Fill missing numeric values
     df.fillna(df.median(numeric_only=True), inplace=True)
+    df.fillna("Unknown", inplace=True)
 
     # Fill categorical missing values
     for col in df.select_dtypes(include="object"):
@@ -44,9 +47,14 @@ def clean_data(df):
 # -------------------------
 # ENCODE CATEGORICAL DATA
 # -------------------------
-def encode_data(df):
+ddef encode_data(df):
+
+    # Apply custom encoder (handles telecom specific values)
+    df = df.apply(lambda row: encode_input(row), axis=1)
+
     le = LabelEncoder()
 
+    # Encode remaining categorical columns
     for col in df.select_dtypes(include="object"):
         df[col] = le.fit_transform(df[col])
 
@@ -57,17 +65,24 @@ def encode_data(df):
 # SCALE NUMERIC FEATURES
 # -------------------------
 def scale_data(df):
+
     scaler = StandardScaler()
 
     # Select numeric columns
-    numeric_cols = df.select_dtypes(include=["int64", "float64"]).columns
+    numeric_cols = df.select_dtypes(include=["int64", "float64"]).columns.tolist()
 
-    # Remove target column from scaling
+    # Remove target column
     if "Churn" in numeric_cols:
-        numeric_cols = numeric_cols.drop("Churn")
+        numeric_cols.remove("Churn")
 
     # Scale features
     df[numeric_cols] = scaler.fit_transform(df[numeric_cols])
+
+    # Create artifacts folder
+    os.makedirs("artifacts", exist_ok=True)
+
+    # Save scaler
+    joblib.dump(scaler, "artifacts/scaler.pkl")
 
     return df
 

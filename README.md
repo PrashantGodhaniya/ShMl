@@ -125,6 +125,22 @@ Swagger documentation:
 
 ---
 
+# Inference Pipeline
+
+During prediction the API performs the following steps:
+
+• Receive user input from the API request  
+• Encode categorical telecom attributes using the custom encoder  
+• Convert input data into a pandas DataFrame  
+• Align feature order with the training dataset  
+• Apply the saved preprocessing scaler  
+• Generate prediction using the trained model  
+• Log prediction results for monitoring and analysis  
+
+This ensures prediction inputs are processed **exactly the same way as training data**, preventing feature mismatch errors.
+
+---
+
 # Monitoring Dashboard
 
 The project includes a **real-time monitoring dashboard** built with Streamlit.
@@ -151,6 +167,26 @@ When drift is detected, the system triggers **automatic model retraining** to ma
 
 ---
 
+# Model Artifacts
+
+During training, preprocessing artifacts are saved so the inference pipeline can reuse them.
+
+Saved artifacts include:
+
+```
+artifacts/
+│
+├── scaler.pkl
+├── feature_columns.pkl
+```
+
+• **scaler.pkl** → StandardScaler used during training  
+• **feature_columns.pkl** → feature order used by the trained model  
+
+These artifacts ensure **consistent preprocessing between training and prediction pipelines**.
+
+---
+
 # Project Structure
 
 ```
@@ -158,6 +194,7 @@ SHML
 │
 ├── .github/             → CI/CD workflows
 ├── api/                 → FastAPI prediction service
+├── artifacts/           → preprocessing artifacts (scaler, feature order)
 ├── configs/             → model configuration files
 ├── dashboard/           → monitoring dashboard
 ├── data/                → datasets
@@ -174,7 +211,6 @@ SHML
 ├── run_system.sh        → start full system
 ├── requirements.txt     → dependencies
 └── README.md
-
 ```
 
 ---
