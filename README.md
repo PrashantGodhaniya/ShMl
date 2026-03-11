@@ -5,7 +5,7 @@ Production-style Machine Learning system for **Telecom Customer Churn Prediction
 Built by **PrashantGodhaniya**
 
 ---
-
+![CI](https://github.com/PrashantGodhaniya/ShMl/actions/workflows/mlops_pipeline.yml/badge.svg)
 ![Python](https://img.shields.io/badge/Python-3.10-blue)
 ![FastAPI](https://img.shields.io/badge/FastAPI-API-green)
 ![MLOps](https://img.shields.io/badge/MLOps-Pipeline-orange)
