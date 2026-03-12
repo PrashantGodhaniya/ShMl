@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+
+# Python cache
+__pycache__/
+
+# MLflow experiments
+mlruns/
+
+# Logs
+logs/
+
+# OS files
+.DS_Store
