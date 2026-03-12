@@ -47,7 +47,7 @@ def clean_data(df):
 # -------------------------
 # ENCODE CATEGORICAL DATA
 # -------------------------
-ddef encode_data(df):
+def encode_data(df):
 
     # Apply custom encoder (handles telecom specific values)
     df = df.apply(lambda row: encode_input(row), axis=1)
@@ -83,6 +83,9 @@ def scale_data(df):
 
     # Save scaler
     joblib.dump(scaler, "artifacts/scaler.pkl")
+
+    feature_columns = df.drop("Churn", axis=1).columns.tolist()
+    joblib.dump(feature_columns, "artifacts/feature_columns.pkl")
 
     return df
 

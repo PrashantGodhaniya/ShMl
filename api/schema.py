@@ -1,26 +1,35 @@
 from pydantic import BaseModel
-from typing import List
+from typing import List, Union
 
 
 class CustomerData(BaseModel):
 
-    gender: float
-    SeniorCitizen: float
-    Partner: float
-    Dependents: float
+    gender: Union[str, int]
+    SeniorCitizen: int
+    Partner: Union[str, int]
+    Dependents: Union[str, int]
+
     tenure: float
-    PhoneService: float
-    MultipleLines: float
-    InternetService: float
-    OnlineSecurity: float
-    OnlineBackup: float
-    DeviceProtection: float
-    TechSupport: float
-    StreamingTV: float
-    StreamingMovies: float
-    Contract: float
-    PaperlessBilling: float
-    PaymentMethod: float
+
+    PhoneService: Union[str, int]
+    MultipleLines: Union[str, int]
+
+    InternetService: Union[str, int]
+
+    OnlineSecurity: Union[str, int]
+    OnlineBackup: Union[str, int]
+    DeviceProtection: Union[str, int]
+    TechSupport: Union[str, int]
+
+    StreamingTV: Union[str, int]
+    StreamingMovies: Union[str, int]
+
+    Contract: Union[str, int]
+
+    PaperlessBilling: Union[str, int]
+
+    PaymentMethod: Union[str, int]
+
     MonthlyCharges: float
     TotalCharges: float
 
